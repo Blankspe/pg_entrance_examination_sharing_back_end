@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhz.mapper.PostMapper">
+    <insert id="addUserPost">
+        insert into user_post (user_id,post_id) values(#{userId},#{postId})
+    </insert>
+    <update id="likePost">
+        update posts
+        set likes = likes+1
+        where posts_id=#{postId}
+    </update>
+    <select id="vagueSearch" resultType="com.lhz.entity.Post">
+        select *
+        from post
+        where contents like concat('%',#{vaguePost},'%')
+
+    </select>
+    <select id="getPostsByCategoryId" resultType="com.lhz.entity.Post">
+        select *
+        from post
+        where post_id in (
+            select post_id
+            from category_post
+            where category_id = #{categoryId}
+        )
+    </select>
+    <select id="getPostsByUserId" resultType="com.lhz.entity.Post">
+        select *
+        from post
+        where post_id in(
+            select post_id
+            from user_post
+            where user_id = #{userId}
+        )
+    </select>
+
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhz.mapper.CommentMapper">
+    <insert id="addPostComment">
+        insert into post_comment
+            (posts_id, comment_id)
+            values (#{postID},#{commentID})
+    </insert>
+    <select id="getCommentsByPostId" resultType="com.lhz.entity.Comment">
+
+        select *
+        from comment
+        where comment_id in (
+            select pc.comment_id
+            from post_comment pc
+            where posts_id = #{postId}
+        )
+    </select>
+
+
+</mapper>

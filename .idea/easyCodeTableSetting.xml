@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EasyCodeTableSetting">
+    <option name="tableInfoMap">
+      <map>
+        <entry key="kaoyan_share.category">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="标签枚举" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="tagId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="标签名称&#10;" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="tagName" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Category" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="kaoyan_share.comment">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="评论id，主键" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="commentId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="评论内容" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="content" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="createTime" />
+                    <option name="type" value="java.util.Date" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="发布评论的用户id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="userId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="评论的用户的id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="toCommentUserId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="对应的根评论的id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="rootId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Comment" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="kaoyan_share.policy">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="考研政策表" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="考研政策id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="policyId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="政策内容" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="content" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="政策类型（0代表不区分院校的政策，1代表区分院校的政策）" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="type" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Policy" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="kaoyan_share.posts">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="contents" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="postsId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="createTime" />
+                    <option name="type" value="java.util.Date" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="updateTime" />
+                    <option name="type" value="java.util.Date" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="likes" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Posts" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="kaoyan_share.school">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="schoolId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="学校名" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="schoolName" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="School" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="kaoyan_share.user">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="用户信息表" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="userId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="userName" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="school" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="profession" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="sex" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="targetSchool" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="allScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="politicalScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="mathScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="englishScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="professionalCourseScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="realScore" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="User" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="kaoyan_sharing" />
+              <option name="savePackageName" value="" />
+              <option name="savePath" value="./src/main/java/com/lhz" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

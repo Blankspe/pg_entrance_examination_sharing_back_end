@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhz.mapper.UserMapper">
+    <update id="updateByUserUpdateDTO">
+        update user
+        <set>
+            <if test="userName!=null">
+                user_name = #{userName}
+            </if>
+            <if test="school!=null">
+                ,school = #{school}
+            </if>
+        </set>
+            where user_id = #{userId}
+
+    </update>
+
+    <select id="getUserByPostId" resultType="com.lhz.entity.User">
+
+        select *
+        from user
+        where user_id = (select user_id
+                         from user_post
+                         where post_id = #{postId})
+
+    </select>
+
+
+
+</mapper>
