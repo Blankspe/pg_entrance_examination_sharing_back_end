@@ -28,9 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@WebFilter(urlPatterns = "/**")
+//@WebFilter(urlPatterns = "/**")
 //@Component
-@Order(1)
+//@Order(1)
 public class GlobalAccessFilter implements Filter{
 
     @Autowired

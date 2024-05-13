@@ -16,6 +16,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * (Posts)表服务实现类
@@ -89,6 +90,9 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
         List<PostDTO> postDTOS = new ArrayList<>();
         for (Post post: postList){
             User user = userService.getUserByPostId(post.getPostId());
+            if(Objects.isNull(user)){
+                user = userService.getById(1);
+            }
             PostDTO postDTO = new PostDTO();
             BeanUtils.copyProperties(user,postDTO);
             BeanUtils.copyProperties(post,postDTO);
