@@ -10,11 +10,17 @@ import lombok.Data;
 @AllArgsConstructor
 public class BaseResponse<T> {
 
-//    返回码
+    /**
+     * 返回码
+     */
     private Integer resultCode;
-//    返回的数据
+    /**
+     * 返回的数据
+     */
     private T data;
-//    友好的中文提示
+    /**
+     * 友好的中文提示
+     */
     private String msg;
 
     public BaseResponse(Integer resultCode,T data){
