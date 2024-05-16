@@ -24,6 +24,8 @@ public class Post {
 
     private String title;
 
+    private Integer userId;
+
     private String contents;
     
     private Date createTime;
