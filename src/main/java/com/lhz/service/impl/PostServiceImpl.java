@@ -5,6 +5,7 @@ import com.lhz.entity.Post;
 import com.lhz.entity.User;
 import com.lhz.entity.dto.PostAddDTO;
 import com.lhz.entity.dto.PostDTO;
+import com.lhz.enums.PostLikeTypeEnum;
 import com.lhz.mapper.PostMapper;
 import com.lhz.service.PostService;
 import com.lhz.service.UserService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -56,8 +58,12 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     }
 
     @Override
-    public Boolean likePost(String postId) {
-        baseMapper.likePost(postId);
+    public Boolean likePost(String postId, String type) {
+        if (type.equals(PostLikeTypeEnum.LIKE.getType())) {
+            baseMapper.likePost(postId);
+        }else {
+            baseMapper.unlike(postId);
+        }
         return true;
     }
 
@@ -89,10 +95,8 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     private List<PostDTO> postsToPostDTOs(List<Post> postList) {
         List<PostDTO> postDTOS = new ArrayList<>();
         for (Post post: postList){
-            User user = userService.getUserByPostId(post.getPostId());
-            if(Objects.isNull(user)){
-                user = userService.getById(1);
-            }
+            User user = userService.getById(post.getUserId());
+
             PostDTO postDTO = new PostDTO();
             BeanUtils.copyProperties(user,postDTO);
             BeanUtils.copyProperties(post,postDTO);

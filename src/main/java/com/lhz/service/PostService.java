@@ -20,7 +20,7 @@ public interface PostService extends IService<Post> {
 
     Boolean addPost(PostAddDTO postDTO);
 
-    Boolean likePost(String postId);
+    Boolean likePost(String postId,String type);
 
     List<PostDTO> postSearch(String vaguePost);
 

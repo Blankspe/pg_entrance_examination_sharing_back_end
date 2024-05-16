@@ -8,6 +8,7 @@ import com.lhz.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.NetworkInterface;
 import java.util.List;
 
 @RestController
@@ -31,14 +32,19 @@ public class PostController {
         return BaseResponse.success(postService.getPostsByUserId(userId));
     }
 
+    /**
+     * 用户发送帖子
+     * @param postDTO
+     * @return
+     */
     @PostMapping("/addPost")
     public BaseResponse<Boolean> addPost(@RequestBody PostAddDTO postDTO){
         return BaseResponse.success(postService.addPost(postDTO));
     }
 
     @PostMapping("/like")
-    public BaseResponse<Boolean> likePost(String postId){
-        return BaseResponse.success(postService.likePost(postId));
+    public BaseResponse<Boolean> likePost(String postId,String type){
+        return BaseResponse.success(postService.likePost(postId,type));
     }
 
 }

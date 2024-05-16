@@ -5,9 +5,14 @@
         insert into user_post (user_id,post_id) values(#{userId},#{postId})
     </insert>
     <update id="likePost">
-        update posts
+        update post
         set likes = likes+1
-        where posts_id=#{postId}
+        where post_id=#{postId}
+    </update>
+    <update id="unlike">
+        update post
+        set likes = likes-1
+        where post_id=#{postId}
     </update>
     <select id="vagueSearch" resultType="com.lhz.entity.Post">
         select *

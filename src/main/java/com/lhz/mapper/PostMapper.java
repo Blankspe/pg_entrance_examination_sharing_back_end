@@ -24,5 +24,7 @@ public interface PostMapper extends BaseMapper<Post> {
     List<Post> getPostsByUserId(Integer userId);
 
     boolean addUserPost(@Param("userId") Integer userId,@Param("postId") Integer postId);
+
+    void unlike(String postId);
 }
 
