@@ -2,6 +2,8 @@ package com.lhz.entity;
 
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +21,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @NoArgsConstructor
 @TableName("profession")
 public class Profession  {
-@TableId
+@TableId(value = "profession",type = IdType.AUTO)
     private Integer professionId;
 
 //年份
