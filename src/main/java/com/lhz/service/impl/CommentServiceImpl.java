@@ -33,12 +33,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
         BeanUtils.copyProperties(commentAddDTO,comment);
 
-        comment.setUserId(1);
         save(comment);
-        String postID = commentAddDTO.getPostId();
-        Integer commentID = comment.getCommentId();
-
-        baseMapper.addPostComment(postID,commentID);
 
         return true;
     }

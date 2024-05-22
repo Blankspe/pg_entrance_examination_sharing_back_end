@@ -10,11 +10,7 @@
 
         select *
         from comment
-        where comment_id in (
-            select pc.comment_id
-            from post_comment pc
-            where posts_id = #{postId}
-        )
+        where post_id = #{postId}
     </select>
 
 
