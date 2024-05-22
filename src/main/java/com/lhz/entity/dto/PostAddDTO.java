@@ -6,7 +6,5 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class PostAddDTO extends PostDTO{
-    private Integer userId;
 }

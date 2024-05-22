@@ -25,6 +25,8 @@ public class Comment  {
     @TableId(value = "comment_id",type = IdType.AUTO)
     private Integer commentId;
 
+    private Integer postId;
+
     //评论内容
     private String content;
     @TableField(fill = FieldFill.INSERT)

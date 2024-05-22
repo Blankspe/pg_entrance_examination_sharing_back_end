@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentAddDTO {
-    private String postId;
+    private Integer postId;
     private Integer commentId;
 
     //评论内容
