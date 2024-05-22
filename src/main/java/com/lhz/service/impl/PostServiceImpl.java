@@ -15,10 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * (Posts)表服务实现类
@@ -46,15 +43,13 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     }
 
     @Override
-    public Boolean addPost(PostAddDTO postDTO) {
-        Post postDO = new Post();
-        BeanUtils.copyProperties(postDTO,postDO);
-        boolean isSuccessPost = save(postDO);
-        Integer postId = postDO.getPostId();
-        Integer userId = postDTO.getUserId();
-        boolean isSuccessUserPost = baseMapper.addUserPost(userId,postId);
+    public Boolean addPost(Post post) {
+        post.setCreateTime(new Date());
+        post.setUpdateTime(new Date());
+        post.setLikes(0);
+        boolean isSuccessPost = save(post);
 
-        return isSuccessPost&&isSuccessUserPost;
+        return isSuccessPost;
     }
 
     @Override

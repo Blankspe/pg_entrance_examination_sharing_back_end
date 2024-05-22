@@ -18,7 +18,7 @@ public interface PostService extends IService<Post> {
 
     List<PostDTO> getPosts();
 
-    Boolean addPost(PostAddDTO postDTO);
+    Boolean addPost(Post postDTO);
 
     Boolean likePost(String postId,String type);
 
