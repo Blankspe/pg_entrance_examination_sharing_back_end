@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("profession")
 @Builder
 public class Profession  {
-@TableId(value = "profession",type = IdType.AUTO)
+@TableId(value = "profession_id",type = IdType.AUTO)
     private Integer professionId;
 
 //年份

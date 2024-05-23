@@ -3,6 +3,8 @@ package com.lhz.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lhz.entity.Profession;
 
+import java.util.List;
+
 
 /**
  * (Profession)表服务接口
@@ -12,5 +14,6 @@ import com.lhz.entity.Profession;
  */
 public interface ProfessionService extends IService<Profession> {
 
+    List<Profession> getProfessionList();
 }
 
