@@ -2,6 +2,7 @@ package com.lhz.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lhz.entity.School;
+import com.lhz.entity.dto.SchoolInfoDTO;
 
 import java.util.List;
 
@@ -15,5 +16,7 @@ import java.util.List;
 public interface SchoolService extends IService<School> {
 
     List<School> getSchools();
+
+    List<School> getSchoolByInfo(SchoolInfoDTO schoolInfoDTO);
 }
 

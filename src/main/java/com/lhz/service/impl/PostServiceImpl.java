@@ -43,13 +43,13 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
     }
 
     @Override
-    public Boolean addPost(Post post) {
+    public Integer addPost(Post post) {
         post.setCreateTime(new Date());
         post.setUpdateTime(new Date());
         post.setLikes(0);
         boolean isSuccessPost = save(post);
 
-        return isSuccessPost;
+        return post.getPostId();
     }
 
     @Override

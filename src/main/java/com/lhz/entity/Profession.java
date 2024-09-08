@@ -52,8 +52,5 @@ public class Profession  {
     private Integer professionScoreOne;
 //专业课二
     private Integer professionScoreTwo;
-
-
-
 }
 

@@ -25,7 +25,10 @@ public class School  {
     //学校名
     private String schoolName;
 
-
+    private String diqu;
+    private String shuxing;
+    private String leixing;
+    private String xingzhi;
 
 }
 

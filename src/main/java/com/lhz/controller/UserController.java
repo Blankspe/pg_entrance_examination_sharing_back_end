@@ -1,6 +1,7 @@
 package com.lhz.controller;
 
 import com.lhz.entity.User;
+import com.lhz.entity.dto.RegisterDTO;
 import com.lhz.entity.dto.UserUpdateDTO;
 import com.lhz.entity.vo.UserVO;
 import com.lhz.response.BaseResponse;
@@ -26,6 +27,11 @@ public class UserController {
     @PostMapping("/getUserInfo")
     public BaseResponse<UserVO> getUserInfo(String userId){
         return BaseResponse.success(userService.getUserInfo(userId));
+    }
+
+    @PostMapping("/register")
+    public BaseResponse<Boolean> register(@RequestBody RegisterDTO registerDTO){
+        return BaseResponse.success(userService.register(registerDTO));
     }
 
 }

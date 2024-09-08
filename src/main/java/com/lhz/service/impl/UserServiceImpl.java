@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lhz.constants.SystemConstants;
 import com.lhz.entity.User;
+import com.lhz.entity.dto.RegisterDTO;
 import com.lhz.entity.dto.UserLoginReqDTO;
 import com.lhz.entity.dto.UserUpdateDTO;
 import com.lhz.entity.vo.LoginRespVo;
@@ -80,6 +81,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getUserByPostId(Integer postId) {
         return baseMapper.getUserByPostId(postId);
 
+    }
+
+    @Override
+    public Boolean register(RegisterDTO registerDTO) {
+        User userDO = new User();
+        userDO.setPhone(registerDTO.getPhone());
+        userDO.setPassword(registerDTO.getPassword());
+        userDO.setUserName(registerDTO.getUsername());
+        save(userDO);
+        return true;
     }
 }
 

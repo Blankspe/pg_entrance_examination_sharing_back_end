@@ -19,4 +19,14 @@ public class ProfessionController {
     public BaseResponse<List<Profession>> getAllProfessions(){
         return BaseResponse.success(professionService.getProfessionList());
     }
+
+    @PostMapping("/getAllProfession")
+    public BaseResponse<List<Profession>> getAllProfession(){
+        return BaseResponse.success(professionService.getDistinctList());
+    }
+
+    @PostMapping("/getProfessionByName")
+    public BaseResponse<List<Profession>> getProfessionByName(String name){
+        return BaseResponse.success(professionService.getProfessionByName(name));
+    }
 }

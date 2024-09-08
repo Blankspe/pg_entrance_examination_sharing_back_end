@@ -1,9 +1,14 @@
 package com.lhz.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.lhz.entity.File;
+import com.lhz.entity.Post;
 import com.lhz.entity.TestDTO;
 import com.lhz.entity.User;
 import com.lhz.entity.dto.UserUpdateDTO;
 import com.lhz.response.BaseResponse;
+import com.lhz.service.FileService;
+import com.lhz.service.PostService;
 import com.lhz.service.UserService;
 import io.minio.*;
 import io.minio.errors.*;
@@ -23,6 +28,8 @@ import java.io.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 
 @RestController
@@ -30,6 +37,12 @@ import java.util.Timer;
 public class TestController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PostService postService;
+
+    @Autowired
+    private FileService fileService;
 
 //    @Value("${data}")
 //    public String string;
@@ -51,19 +64,6 @@ public class TestController {
 
     @GetMapping("/testRedirect")
     public void testRedirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("http://localhost:8080/test");
-    }
-
-    @PostMapping("/fileUpLoad")
-    public void fileUpLoad(@RequestBody MultipartFile file,TestDTO dto) throws IOException, ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException, InvalidBucketNameException, RegionConflictException, InvalidExpiresRangeException {
-        System.out.println(dto.getStr());
-        System.out.println(dto.getNum());
-
-        BufferedInputStream bis = new BufferedInputStream(file.getInputStream());
-
-
-        String fileName = file.getOriginalFilename();
-
         /*BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D://iotest//"+fileName));
 
         byte[] bytes = new byte[1024*1024*50];
@@ -72,15 +72,24 @@ public class TestController {
             bos.write(bytes,0,len);
             len = bis.read(bytes);
         }*/
+        response.sendRedirect("http://localhost:8080/test");
+    }
 
-        String endPoint = "http://192.168.200.128:19000";
-        String bucketName = "headimages";
+    @PostMapping("/fileUpLoad")
+    public void fileUpLoad(@RequestBody MultipartFile file, @RequestHeader String postId) throws IOException, ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException, InvalidBucketNameException, RegionConflictException, InvalidExpiresRangeException {
+        //文件输入流
+        BufferedInputStream bis = new BufferedInputStream(file.getInputStream());
+        String fileName = file.getOriginalFilename();
+        //minio端信息，建立客户端
+        String endPoint = "http://192.168.200.138:19000";
+        String bucketName = "files";
         String contentType = file.getContentType();
         System.out.println(contentType);
         MinioClient minioClient = MinioClient.builder()
                 .endpoint(endPoint)
                 .credentials("minioadmin","minioadmin")
                 .build();
+        //文件参数
         PutObjectArgs putObjectArgs = PutObjectArgs.builder()
                         .stream(bis, bis.available(), -1)
                         .object(fileName)
@@ -93,20 +102,15 @@ public class TestController {
             minioClient.makeBucket(bucketName);
         }
         minioClient.putObject(putObjectArgs);
-        /*String objectUrl = minioClient.getPresignedObjectUrl(
-                GetPresignedObjectUrlArgs.builder()
-                        .bucket(bucketName)
-                        .object(fileName)
-                        .build()
-        );*/
-        String objectUrl1 = minioClient.getObjectUrl(bucketName, fileName);
-
         String url = endPoint+"/"+bucketName+"/"+fileName;
 
         System.out.println(url);
-//        System.out.println(objectUrl);
-        System.out.println("最后一个"+objectUrl1);
-        Timer timer = new Timer();
+        File fileDO = new File();
+        fileDO.setPath(url);
+        fileDO.setOriginalName(fileName);
+        fileDO.setBucketName(bucketName);
+        fileDO.setPostId(Integer.valueOf(postId));
+        fileService.save(fileDO);
 
     }
 

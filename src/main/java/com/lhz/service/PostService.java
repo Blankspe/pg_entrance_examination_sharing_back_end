@@ -1,9 +1,11 @@
 package com.lhz.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lhz.entity.File;
 import com.lhz.entity.Post;
 import com.lhz.entity.dto.PostAddDTO;
 import com.lhz.entity.dto.PostDTO;
+import com.lhz.response.BaseResponse;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public interface PostService extends IService<Post> {
 
     List<PostDTO> getPosts();
 
-    Boolean addPost(Post postDTO);
+    Integer addPost(Post postDTO);
 
     Boolean likePost(String postId,String type);
 
@@ -27,5 +29,6 @@ public interface PostService extends IService<Post> {
     List<PostDTO> getPostsByCategoryId(Integer categoryId);
 
     List<PostDTO> getPostsByUserId(Integer userId);
+
 }
 

@@ -15,5 +15,9 @@ import java.util.List;
 public interface ProfessionService extends IService<Profession> {
 
     List<Profession> getProfessionList();
+
+    List<Profession> getProfessionByName(String name);
+
+    List<Profession> getDistinctList();
 }
 

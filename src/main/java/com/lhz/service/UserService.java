@@ -2,6 +2,7 @@ package com.lhz.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lhz.entity.User;
+import com.lhz.entity.dto.RegisterDTO;
 import com.lhz.entity.dto.UserLoginReqDTO;
 import com.lhz.entity.dto.UserUpdateDTO;
 import com.lhz.entity.vo.LoginRespVo;
@@ -23,5 +24,7 @@ public interface UserService extends IService<User> {
     UserVO getUserInfo(String userId);
 
     User getUserByPostId(Integer postId);
+
+    Boolean register(RegisterDTO registerDTO);
 }
 

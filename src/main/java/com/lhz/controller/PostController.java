@@ -38,7 +38,7 @@ public class PostController {
      * @return
      */
     @PostMapping("/addPost")
-    public BaseResponse<Boolean> addPost(@RequestBody Post postDTO){
+    public BaseResponse<Integer> addPost(@RequestBody Post postDTO){
         return BaseResponse.success(postService.addPost(postDTO));
     }
 
